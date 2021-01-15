@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron:  '0 2 * * *'
+
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup git
+        run: |
+          git config --global user.email "0deltast+bot@gmail.com"
+          git config --global user.name "0Delta(Bot)"
+          git remote add upstream https://github.com/hashicorp/terraform-provider-google.git
+          git clone https://github.com/hashicorp/terraform-provider-google.git
+
+      - name: create target list
+        run: |
+          git fetch origin
+          git branch -r --list | cut -c 3- | sed -e "s@origin/export-@@g" > t1
+          cd terraform-provider-google
+          git tag > ../t2
+          cd ../
+          grep -x -i -v -f t1 t2 > texist
+          echo "target tag"
+          cat texist
+
+      - name: generate
+        run: |
+          for line in `cat texist`
+          do
+              git switch base
+              git switch -c export-${line}
+              git fetch -q upstream ${line}
+              git pull -q upstream ${line} --squash
+              git rm --cached .github/workflows/* | true
+              git commit -q -m "pull ${line}"
+              git checkout origin/patch -- main.go
+              git commit -q -m "add patched main.go"
+              git push -q origin export-$line
+              echo "---------------------------------"
+          done
