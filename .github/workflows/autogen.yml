@@ -30,7 +30,7 @@ jobs:
           cd terraform-provider-google
           git tag > ../t2
           cd ../
-          grep -x -i -v -f t1 t2 > texist
+          grep -x -i -v -f t1 t2 > texist | true
           echo "target tag"
           cat texist
 
