@@ -12,23 +12,23 @@ go run ./
 
 ## Options
 
-Usage of terraform-google-property-exporter:
-  -csv
-        output by csv (overwrite separator option)
-  -separator string
-        separator char (default "\t")
+Usage of terraform-google-property-exporter:  
+  -csv  
+        output by csv (overwrite separator option)  
+  -separator string  
+        separator char (default "\t")  
 
 ## Output Sample
 
-最初の列は種別を表します。それぞれ以下の意味を持ちます。
-R - Require
-  必須オプションです。ただし、上位のオプションが非必須であればその単位で省略できます。
-O - Optional
-  非必須オプションです。指定しなかった場合は空の値が設定されます。
-C - Compute
-  動的に設定される値です。読取専用の値などです。
-CO - Compute Optional
-  非必須オプションですが、指定しなかった場合は自動的にデフォルト値が設定される値です。
+最初の列は種別を表します。それぞれ以下の意味を持ちます。  
++ R - Require  
+  必須オプションです。ただし、上位のオプションが非必須であればその単位で省略できます。  
++ O - Optional  
+  非必須オプションです。指定しなかった場合は空の値が設定されます。  
++ C - Compute  
+  動的に設定される値です。読取専用の値などです。  
++ CO - Compute Optional  
+  非必須オプションですが、指定しなかった場合は自動的にデフォルト値が設定される値です。  
 
 ```
 O       google_compute_global_address   network
