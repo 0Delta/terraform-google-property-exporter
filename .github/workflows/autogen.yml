@@ -11,7 +11,7 @@ on:
 
 jobs:
   checkskip:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - run: echo "[skip ci] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
 
