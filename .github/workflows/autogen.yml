@@ -46,6 +46,7 @@ jobs:
               git switch base
               git switch -c export-${line}
               git fetch -q upstream ${line}
+              rm .github/workflows/* | true
               git pull -q upstream ${line} --squash
               git rm --cached .github/workflows/* | true
               git commit -q -m "pull ${line}"
