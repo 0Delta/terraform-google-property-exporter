@@ -1,60 +1,51 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
 package main
 
 import (
-	"context"
 	"flag"
-	"log"
+	"fmt"
+	"os"
 
-	"github.com/hashicorp/terraform-plugin-framework/providerserver"
-	"github.com/hashicorp/terraform-plugin-go/tfprotov5"
-	"github.com/hashicorp/terraform-plugin-go/tfprotov5/tf5server"
-	"github.com/hashicorp/terraform-plugin-mux/tf5muxserver"
+	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-provider-google/google"
-	ver "github.com/hashicorp/terraform-provider-google/version"
 )
 
-var (
-	// these will be set by the goreleaser configuration
-	// to appropriate values for the compiled binary
-	version string = ver.ProviderVersion
+var seps = "	"
 
-	// goreleaser can also pass the specific commit if you want
-	// commit  string = ""
-)
+func co(r *schema.Resource, prefix string) {
+	for k, e := range r.Schema {
+		req := ""
+		if e.Required {
+			req = req + "R"
+		}
+		if e.Computed {
+			req = req + "C"
+		}
+		if e.Optional {
+			req = req + "O"
+		}
+		fmt.Printf("%s%s%s%s\n", req, seps, prefix, k)
+		if e.Elem != nil {
+			t, ok := e.Elem.(*schema.Resource)
+			if ok {
+				co(t, prefix+k+seps)
+			}
+		}
+	}
+}
 
 func main() {
-	var debug bool
-
-	flag.BoolVar(&debug, "debug", false, "set to true to run the provider with support for debuggers like delve")
-	flag.Parse()
-
-	// concat with sdkv2 provider
-	providers := []func() tfprotov5.ProviderServer{
-		providerserver.NewProtocol5(google.New(version)), // framework provider
-		google.Provider().GRPCProvider,                   // sdk provider
-	}
-
-	// use the muxer
-	muxServer, err := tf5muxserver.NewMuxServer(context.Background(), providers...)
-	if err != nil {
-		log.Fatalf(err.Error())
-	}
-
-	var serveOpts []tf5server.ServeOpt
-
-	if debug {
-		serveOpts = append(serveOpts, tf5server.WithManagedDebug())
-	}
-
-	err = tf5server.Serve(
-		"registry.terraform.io/hashicorp/google",
-		muxServer.ProviderServer,
-		serveOpts...,
+	pf := flag.NewFlagSet("terraform-google-property-exporter", flag.ExitOnError)
+	var (
+		s = pf.String("separator", "	", "separator char")
+		c = pf.Bool("csv", false, "output by csv (overwrite separator option)")
 	)
-
-	if err != nil {
-		log.Fatal(err)
+	pf.Parse(os.Args[1:])
+	if *c {
+		*s = ","
+	}
+	seps = *s
+	rm := google.ResourceMap()
+	for k, r := range rm {
+		co(r, k+seps)
 	}
 }
