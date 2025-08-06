@@ -1,0 +1,29 @@
+resource: 'google_network_security_mirroring_endpoint_group'
+generation_type: 'mmv1'
+source_file: 'products/networksecurity/MirroringEndpointGroup.yaml'
+api_service_name: 'networksecurity.googleapis.com'
+api_version: 'v1'
+api_resource_type_kind: 'MirroringEndpointGroup'
+fields:
+  - field: 'associations.name'
+  - field: 'associations.network'
+  - field: 'associations.state'
+  - field: 'connected_deployment_groups.locations.location'
+  - field: 'connected_deployment_groups.locations.state'
+  - field: 'connected_deployment_groups.name'
+  - field: 'create_time'
+  - field: 'description'
+  - field: 'effective_labels'
+    provider_only: true
+  - field: 'labels'
+  - field: 'location'
+    provider_only: true
+  - field: 'mirroring_deployment_group'
+  - field: 'mirroring_endpoint_group_id'
+    provider_only: true
+  - field: 'name'
+  - field: 'reconciling'
+  - field: 'state'
+  - field: 'terraform_labels'
+    provider_only: true
+  - field: 'update_time'
