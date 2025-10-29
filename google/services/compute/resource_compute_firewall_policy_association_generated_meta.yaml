@@ -1,0 +1,11 @@
+resource: 'google_compute_firewall_policy_association'
+generation_type: 'mmv1'
+source_file: 'products/compute/FirewallPolicyAssociation.yaml'
+api_service_name: 'compute.googleapis.com'
+api_version: 'v1'
+api_resource_type_kind: 'FirewallPolicy'
+fields:
+  - api_field: 'attachmentTarget'
+  - api_field: 'firewallPolicy'
+  - api_field: 'name'
+  - api_field: 'shortName'
