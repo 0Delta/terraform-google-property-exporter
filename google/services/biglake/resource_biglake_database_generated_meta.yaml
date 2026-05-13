@@ -1,0 +1,20 @@
+# Copyright IBM Corp. 2014, 2026
+# SPDX-License-Identifier: MPL-2.0
+resource: google_biglake_database
+generation_type: mmv1
+source_file: products/biglake/Database.yaml
+api_service_name: biglake.googleapis.com
+api_version: v1
+api_resource_type_kind: Database
+fields:
+    - field: catalog
+      provider_only: true
+    - api_field: createTime
+    - api_field: deleteTime
+    - api_field: expireTime
+    - api_field: hiveOptions.locationUri
+    - api_field: hiveOptions.parameters
+    - field: name
+      provider_only: true
+    - api_field: type
+    - api_field: updateTime
