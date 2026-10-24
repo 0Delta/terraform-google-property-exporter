@@ -1,0 +1,61 @@
+# Copyright IBM Corp. 2014, 2026
+# SPDX-License-Identifier: MPL-2.0
+resource: google_ces_deployment
+generation_type: mmv1
+source_file: products/ces/Deployment.yaml
+api_service_name: ces.googleapis.com
+api_version: v1
+api_resource_type_kind: Deployment
+autogen_status: true
+autogen_version: 1
+fields:
+    - field: app
+      provider_only: true
+    - api_field: appVersion
+    - api_field: channelProfile.channelType
+    - api_field: channelProfile.disableBargeInControl
+    - api_field: channelProfile.disableDtmf
+    - api_field: channelProfile.personaProperty.persona
+    - api_field: channelProfile.profileId
+    - api_field: channelProfile.webWidgetConfig.modality
+    - api_field: channelProfile.webWidgetConfig.securitySettings.allowedOrigins
+    - api_field: channelProfile.webWidgetConfig.securitySettings.enableOriginCheck
+    - api_field: channelProfile.webWidgetConfig.securitySettings.enablePublicAccess
+    - api_field: channelProfile.webWidgetConfig.securitySettings.enableRecaptcha
+    - api_field: channelProfile.webWidgetConfig.theme
+    - api_field: channelProfile.webWidgetConfig.webWidgetTitle
+    - api_field: channelProfile.whatsappConfig.description
+    - api_field: channelProfile.whatsappConfig.displayName
+    - api_field: channelProfile.whatsappConfig.phoneNumber
+    - api_field: channelProfile.whatsappConfig.phoneNumberId
+    - api_field: channelProfile.whatsappConfig.thumbnailUrl
+    - api_field: channelProfile.whatsappConfig.wabaId
+    - api_field: createTime
+    - api_field: displayName
+    - api_field: etag
+    - api_field: instagramCredentials.authCode
+    - api_field: instagramCredentials.authCode
+      field: instagram_credentials.auth_code_wo
+    - field: instagram_credentials.auth_code_wo_version
+      provider_only: true
+    - api_field: instagramCredentials.conversationProfileId
+    - field: location
+      provider_only: true
+    - api_field: name
+    - api_field: updateTime
+    - api_field: whatsappCredentials.authCode
+    - api_field: whatsappCredentials.authCode
+      field: whatsapp_credentials.auth_code_wo
+    - field: whatsapp_credentials.auth_code_wo_version
+      provider_only: true
+    - api_field: whatsappCredentials.businessAccountId
+    - api_field: whatsappCredentials.conversationProfileId
+    - api_field: whatsappCredentials.phoneNumber
+    - api_field: whatsappCredentials.pin
+    - api_field: whatsappCredentials.pin
+      field: whatsapp_credentials.pin_wo
+    - field: whatsapp_credentials.pin_wo_version
+      provider_only: true
+    - api_field: whatsappCredentials.wabaId
+    - field: deletion_policy
+      provider_only: true
