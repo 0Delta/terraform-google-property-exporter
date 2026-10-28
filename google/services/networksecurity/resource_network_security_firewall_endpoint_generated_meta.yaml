@@ -1,0 +1,39 @@
+# Copyright IBM Corp. 2014, 2026
+# SPDX-License-Identifier: MPL-2.0
+resource: google_network_security_firewall_endpoint
+generation_type: mmv1
+source_file: products/networksecurity/FirewallEndpoint.yaml
+api_service_name: networksecurity.googleapis.com
+api_version: v1
+api_resource_type_kind: FirewallEndpoint
+fields:
+    - api_field: associatedNetworks
+    - api_field: billingProjectId
+    - api_field: createTime
+    - field: effective_labels
+      provider_only: true
+    - api_field: endpointSettings.contentCloudRegion
+    - api_field: endpointSettings.httpPartialResponseBlocked
+    - api_field: endpointSettings.jumboFramesEnabled
+    - api_field: labels
+    - field: location
+      provider_only: true
+    - field: name
+      provider_only: true
+    - field: parent
+      provider_only: true
+    - api_field: reconciling
+    - api_field: selfLink
+    - api_field: state
+    - field: terraform_labels
+      provider_only: true
+    - api_field: updateTime
+    - api_field: wildfireSettings.enabled
+    - api_field: wildfireSettings.wildfireInlineCloudAnalysisSettings.maxAnalysisDuration
+    - api_field: wildfireSettings.wildfireInlineCloudAnalysisSettings.submissionTimeoutLoggingDisabled
+    - api_field: wildfireSettings.wildfireInlineCloudAnalysisSettings.timeoutAction
+    - api_field: wildfireSettings.wildfireRealtimeLookupDuration
+    - api_field: wildfireSettings.wildfireRealtimeLookupTimeoutAction
+    - api_field: wildfireSettings.wildfireRegion
+    - field: deletion_policy
+      provider_only: true
