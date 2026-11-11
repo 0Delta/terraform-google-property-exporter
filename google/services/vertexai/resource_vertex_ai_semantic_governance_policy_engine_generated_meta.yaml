@@ -1,0 +1,38 @@
+# Copyright IBM Corp. 2014, 2026
+# SPDX-License-Identifier: MPL-2.0
+resource: google_vertex_ai_semantic_governance_policy_engine
+generation_type: mmv1
+source_file: products/vertexai/SemanticGovernancePolicyEngine.yaml
+api_service_name: aiplatform.googleapis.com
+api_version: v1
+api_resource_type_kind: SemanticGovernancePolicyEngine
+fields:
+    - api_field: createTime
+    - api_field: gatewayConfigs.key
+      field: gateway_configs.name
+    - api_field: gatewayConfigs.value.allowedProjects
+      field: gateway_configs.allowed_projects
+    - api_field: gatewayConfigs.value.dnsRecord
+      field: gateway_configs.dns_record
+    - api_field: gatewayConfigs.value.dnsZoneName
+      field: gateway_configs.dns_zone_name
+    - api_field: gatewayConfigs.value.ipAddress
+      field: gateway_configs.ip_address
+    - api_field: gatewayConfigs.value.network
+      field: gateway_configs.network
+    - api_field: gatewayConfigs.value.pscEndpoint
+      field: gateway_configs.psc_endpoint
+    - api_field: gatewayConfigs.value.state
+      field: gateway_configs.state
+    - api_field: gatewayConfigs.value.subnetwork
+      field: gateway_configs.subnetwork
+    - api_field: ipAddress
+    - api_field: name
+    - api_field: pscForwardingRule
+    - api_field: pscServiceAttachment
+    - field: region
+      provider_only: true
+    - api_field: state
+    - api_field: updateTime
+    - field: deletion_policy
+      provider_only: true
