@@ -1,0 +1,59 @@
+# Copyright IBM Corp. 2014, 2026
+# SPDX-License-Identifier: MPL-2.0
+resource: google_iam_workforce_pool_provider
+generation_type: mmv1
+source_file: products/iamworkforcepool/WorkforcePoolProvider.yaml
+api_service_name: iam.googleapis.com
+api_version: v1
+api_resource_type_kind: WorkforcePoolProvider
+fields:
+    - api_field: attributeCondition
+    - api_field: attributeMapping
+    - api_field: description
+    - api_field: detailedAuditLogging
+    - api_field: disabled
+    - api_field: displayName
+    - api_field: extendedAttributesOauth2Client.attributesType
+    - api_field: extendedAttributesOauth2Client.clientId
+    - api_field: extendedAttributesOauth2Client.clientSecret.value.plainText
+    - api_field: extendedAttributesOauth2Client.clientSecret.value.plainText
+      field: extended_attributes_oauth2_client.client_secret.value.plain_text_wo
+    - field: extended_attributes_oauth2_client.client_secret.value.plain_text_wo_version
+      provider_only: true
+    - api_field: extendedAttributesOauth2Client.clientSecret.value.thumbprint
+    - api_field: extendedAttributesOauth2Client.issuerUri
+    - api_field: extendedAttributesOauth2Client.queryParameters.filter
+    - api_field: extraAttributesOauth2Client.attributesType
+    - api_field: extraAttributesOauth2Client.clientId
+    - api_field: extraAttributesOauth2Client.clientSecret.value.plainText
+    - api_field: extraAttributesOauth2Client.clientSecret.value.plainText
+      field: extra_attributes_oauth2_client.client_secret.value.plain_text_wo
+    - field: extra_attributes_oauth2_client.client_secret.value.plain_text_wo_version
+      provider_only: true
+    - api_field: extraAttributesOauth2Client.clientSecret.value.thumbprint
+    - api_field: extraAttributesOauth2Client.issuerUri
+    - api_field: extraAttributesOauth2Client.queryParameters.filter
+    - field: location
+      provider_only: true
+    - api_field: name
+    - api_field: oidc.clientId
+    - api_field: oidc.clientSecret.value.plainText
+    - api_field: oidc.clientSecret.value.plainText
+      field: oidc.client_secret.value.plain_text_wo
+    - field: oidc.client_secret.value.plain_text_wo_version
+      provider_only: true
+    - api_field: oidc.clientSecret.value.thumbprint
+    - api_field: oidc.issuerUri
+    - api_field: oidc.jwksJson
+    - api_field: oidc.webSsoConfig.additionalScopes
+    - api_field: oidc.webSsoConfig.assertionClaimsBehavior
+    - api_field: oidc.webSsoConfig.responseType
+    - field: provider_id
+      provider_only: true
+    - api_field: saml.idpMetadataXml
+    - api_field: scimUsage
+    - api_field: state
+    - field: workforce_pool_id
+      provider_only: true
+    - field: deletion_policy
+      provider_only: true

@@ -1,0 +1,16 @@
+# Copyright IBM Corp. 2014, 2026
+# SPDX-License-Identifier: MPL-2.0
+resource: google_apphub_boundary
+generation_type: mmv1
+source_file: products/apphub/Boundary.yaml
+api_service_name: apphub.googleapis.com
+api_version: v1
+api_resource_type_kind: Boundary
+fields:
+    - api_field: createTime
+    - api_field: crmNode
+    - field: location
+      provider_only: true
+    - api_field: name
+    - api_field: type
+    - api_field: updateTime
